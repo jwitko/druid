@@ -43,9 +43,10 @@ spec:
         component: {{ .Values.middleManager.name }}
         release: {{ .Release.Name }}
       annotations:
-      {{- with .Values.middleManager.podAnnotations }}
-{{ toYaml . | indent 8 }}
-      {{- end }}
+        druid.k8s.enablePatching: "true"
+        {{- with .Values.middleManager.podAnnotations }}
+          {{- toYaml . | nindent 8 }}
+        {{- end }}
       {{- if .Values.prometheus.enabled }}
       {{- with .Values.prometheus.annotation }}
 {{ toYaml . | indent 8 }}
@@ -96,6 +97,9 @@ spec:
       imagePullSecrets:
 {{ toYaml .Values.image.pullSecrets | indent 8 }}
 {{- end }}
+      {{- if .Values.middleManager.serviceAccount.create }}
+      serviceAccountName: "{{ .Values.middleManager.serviceAccount.name }}"
+      {{- end }}
       containers:
       - name: druid
         args: [ "middleManager" ]

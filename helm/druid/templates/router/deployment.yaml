@@ -42,8 +42,9 @@ spec:
         release: {{ .Release.Name }}
         component: {{ .Values.router.name }}
       annotations:
+        druid.k8s.enablePatching: "true"
       {{- with .Values.router.podAnnotations }}
-{{ toYaml . | indent 8 }}
+        {{- toYaml . | nindent 8 }}
       {{- end }}
       {{- if .Values.prometheus.enabled }}
       {{- with .Values.prometheus.annotation }}
@@ -51,6 +52,9 @@ spec:
       {{- end }}
       {{- end }}
     spec:
+      {{- if .Values.router.serviceAccount.create }}
+      serviceAccountName: "{{ .Values.router.serviceAccount.name }}"
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
