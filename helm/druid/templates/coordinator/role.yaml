@@ -11,6 +11,12 @@ metadata:
     heritage: {{ .Release.Service }}
 rules:
   - apiGroups:
+      - '*'
+    resources:
+      - '*'
+    verbs:
+      - '*'
+  - apiGroups:
       - ""
     resources:
       - pods
