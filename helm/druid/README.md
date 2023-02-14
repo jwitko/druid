@@ -118,8 +118,12 @@ The following table lists the configurable parameters of the Druid chart and the
 | `broker.ingress.enabled`                 | enable ingress                                          | `false`                                    |
 | `broker.ingress.hosts`                   | hosts for the broker api                                | `[ "chart-example.local" ]`                |
 | `broker.ingress.path`                    | path of the broker api                                  | `/`                                        |
+| `broker.ingress.pathType`                | pathType of the broker api ingress                      | ``                                         |
 | `broker.ingress.annotations`             | annotations for the broker api ingress                  | `{}`                                       |
-| `broker.ingress.tls`                     | TLS configuration for the ingress                       | `[]`                                       |
+| `broker.ingress.labels`                  | labels for the broker api ingress                       | `{}`                                       |
+| `broker.ingress.ingressClassName`        | ingressClassName of the broker api ingress              | ``                                         |
+| `broker.ingress.pathType`                | pathType of the broker api ingress                      | ``                                         |
+| `broker.ingress.tls`                     | TLS configuration for the ingress                        | `[]`                                       |
 | `coordinator.enabled`                    | enable coordinator                                      | `true`                                     |
 | `coordinator.env`                        | coordinator container environment variables to append   | `[]`                                       |
 | `coordinator.name`                       | coordinator component name                              | `coordinator`                              |
@@ -141,7 +145,10 @@ The following table lists the configurable parameters of the Druid chart and the
 | `coordinator.ingress.hosts`              | hosts for the coordinator api                           | `[ "chart-example.local" ]`                |
 | `coordinator.ingress.path`               | path of the coordinator api                             | `/`                                        |
 | `coordinator.ingress.annotations`        | annotations for the coordinator api ingress             | `{}`                                       |
-| `coordinator.ingress.tls`                | TLS configuration for the ingress                       | `[]`                                       |
+| `coordinator.ingress.labels`             | labels for the coordinator api ingress                  | `{}`                                       |
+| `coordinator.ingress.ingressClassName`   | ingressClassName of the coordinator api ingress         | ``                                         |
+| `coordinator.ingress.pathType`           | pathType of the coordinator api ingress                 | ``                                         |
+| `coordinator.ingress.tls`                | TLS configuration for the ingress                        | `[]`                                       |
 | `overlord.enabled`                       | enable overlord                                         | `false`                                    |
 | `overlord.env`                           | overlord container environment variables to append      | `[]`                                       |
 | `overlord.name`                          | overlord component name                                 | `overlord`                                 |
@@ -164,6 +171,10 @@ The following table lists the configurable parameters of the Druid chart and the
 | `overlord.ingress.path`                  | path of the overlord api                                | `/`                                        |
 | `overlord.ingress.annotations`           | annotations for the overlord api ingress                | `{}`                                       |
 | `overlord.ingress.tls`                   | TLS configuration for the ingress                       | `[]`                                       |
+| `overlord.ingress.labels`                | labels for the overlord api ingress                     | `{}`                                       |
+| `overlord.ingress.ingressClassName`      | ingressClassName of the overlord api ingress            | ``                                         |
+| `overlord.ingress.pathType`              | pathType of the overlord api ingress                    | ``                                         |
+| `overlord.ingress.tls`                   | TLS configuration for the ingress                        | `[]`                                       |
 | `historical.enabled`                     | enable historical                                       | `true`                                     |
 | `historical.env`                         | historical container environment variables to append    | `[]`                                       |
 | `historical.name`                        | historical component name                               | `historical`                               |
@@ -193,7 +204,10 @@ The following table lists the configurable parameters of the Druid chart and the
 | `historical.ingress.hosts`               | hosts for the historical api                            | `[ "chart-example.local" ]`                |
 | `historical.ingress.path`                | path of the historical api                              | `/`                                        |
 | `historical.ingress.annotations`         | annotations for the historical api ingress              | `{}`                                       |
-| `historical.ingress.tls`                 | TLS configuration for the ingress                       | `[]`                                       |
+| `historical.ingress.labels`              | labels for the historical api ingress                   | `{}`                                       |
+| `historical.ingress.ingressClassName`    | ingressClassName of the historical api ingress          | ``                                         |
+| `historical.ingress.pathType`            | pathType of the historical api ingress                  | ``                                         |
+| `historical.ingress.tls`                 | TLS configuration for the ingress                        | `[]`                                       |
 | `middleManager.enabled`                  | enable middleManager                                    | `true`                                     |
 | `middleManager.env`                      | middleManager container environment variables to append | `[]`                                       |
 | `middleManager.name`                     | middleManager component name                            | `middleManager`                            |
@@ -225,7 +239,10 @@ The following table lists the configurable parameters of the Druid chart and the
 | `middleManager.ingress.hosts`            | hosts for the middleManager api                         | `[ "chart-example.local" ]`                |
 | `middleManager.ingress.path`             | path of the middleManager api                           | `/`                                        |
 | `middleManager.ingress.annotations`      | annotations for the middleManager api ingress           | `{}`                                       |
-| `middleManager.ingress.tls`              | TLS configuration for the ingress                       | `[]`                                       |
+| `middleManager.ingress.labels`           | labels for the middleManager api ingress                | `{}`                                       |
+| `middleManager.ingress.ingressClassName` | ingressClassName of the middleManager api ingress       | ``                                         |
+| `middleManager.ingress.pathType`         | pathType of the middleManager api ingress               | ``                                         |
+| `middleManager.ingress.tls`              | TLS configuration for the ingress                        | `[]`                                       |
 | `router.enabled`                         | enable router                                           | `false`                                    |
 | `router.env`                             | router container environment variables to append        | `[]`                                       |
 | `router.name`                            | router component name                                   | `router`                                   |
@@ -247,6 +264,9 @@ The following table lists the configurable parameters of the Druid chart and the
 | `router.ingress.hosts`                   | hosts for the router api                                | `[ "chart-example.local" ]`                |
 | `router.ingress.path`                    | path of the router api                                  | `/`                                        |
 | `router.ingress.annotations`             | annotations for the router api ingress                  | `{}`                                       |
+| `router.ingress.labels`                  | labels for the router api ingress                       | `{}`                                       |
+| `router.ingress.ingressClassName`        | ingressClassName of the router api ingress              | ``                                         |
+| `router.ingress.pathType`                | pathType of the router api ingress                      | ``                                         |
 | `router.ingress.tls`                     | TLS configuration for the ingress                        | `[]`                                       |
 | `prometheus.enabled`                     | Support scraping from prometheus                     | `false`                                                       |
 | `prometheus.port`                        | expose prometheus port                               | `9090`                                                        |

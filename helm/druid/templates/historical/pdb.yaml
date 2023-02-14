@@ -18,7 +18,7 @@
 */}}
 
 {{- if .Values.historical.podDisruptionBudget.enabled }}
-apiVersion: {{ include "common.capabilities.policy.apiVersion" . }}
+apiVersion: {{ include "capabilities.policy.apiVersion" . }}
 kind: PodDisruptionBudget
 metadata:
   labels:

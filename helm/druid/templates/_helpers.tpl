@@ -164,21 +164,3 @@ Create the name of the router service account
     {{- default "default" .Values.router.serviceAccount.name }}
   {{- end }}
 {{- end }}
-
-{{/*
-Return the target Kubernetes version
-*/}}
-{{- define "common.capabilities.kubeVersion" -}}
-{{- default .Capabilities.KubeVersion.Version .Values.kubeVersion -}}
-{{- end -}}
-
-{{/*
-Return the appropriate apiVersion for poddisruptionbudget.
-*/}}
-{{- define "common.capabilities.policy.apiVersion" -}}
-{{- if semverCompare "<1.21-0" (include "common.capabilities.kubeVersion" .) -}}
-{{- print "policy/v1beta1" -}}
-{{- else -}}
-{{- print "policy/v1" -}}
-{{- end -}}
-{{- end -}}
